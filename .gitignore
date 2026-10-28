@@ -1,0 +1,10 @@
+# Secrets and private data: never commit these
+config.php
+wa_config.php
+admin_hash.php
+api/*.log
+*.log
+receipts/*
+!receipts/index.html
+.DS_Store
+.vscode/

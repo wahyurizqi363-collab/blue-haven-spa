@@ -1,0 +1,76 @@
+/* ===== Mini Game "Lumba-Lumba Lompat" — tombol melayang + jendela game ===== */
+.mg-fab{
+  position:fixed; right:18px; bottom:18px; z-index:9990;
+  width:60px; height:60px; border-radius:50%; border:3px solid #fff; padding:0; cursor:grab;
+  display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(145deg,#5CB0F5,#1E6FC4);
+  box-shadow:0 10px 22px rgba(30,111,196,.45), inset 0 1px 0 rgba(255,255,255,.5);
+  touch-action:none; user-select:none; -webkit-user-select:none;
+  animation:mgBob 3.2s ease-in-out infinite;
+  transition:box-shadow .15s ease;
+}
+.mg-fab:hover{ box-shadow:0 14px 28px rgba(30,111,196,.55), inset 0 1px 0 rgba(255,255,255,.5); }
+.mg-fab.mg-drag{ cursor:grabbing; animation:none; transform:scale(1.08); }
+.mg-fab img{ width:38px; height:auto; transform:scaleX(-1); pointer-events:none; filter:drop-shadow(0 2px 3px rgba(0,0,0,.25)); }
+.mg-fab .mg-pad{
+  position:absolute; right:-6px; top:-6px; width:24px; height:24px; border-radius:50%;
+  background:#F0538A; border:2px solid #fff; font-size:.8rem; line-height:20px; text-align:center;
+  box-shadow:0 3px 8px rgba(214,62,114,.5); pointer-events:none;
+}
+.mg-fab::after{ /* cincin berdenyut */
+  content:""; position:absolute; inset:-3px; border-radius:50%; border:2px solid rgba(92,176,245,.7);
+  animation:mgRing 2.6s ease-out infinite; pointer-events:none;
+}
+.mg-fab.mg-drag::after{ animation:none; opacity:0; }
+.mg-tip{
+  position:fixed; z-index:9991; background:#132A44; color:#fff; font-size:.78rem; font-weight:700;
+  padding:6px 12px; border-radius:999px; white-space:nowrap; pointer-events:none;
+  opacity:0; transform:translateY(4px); transition:opacity .2s ease, transform .2s ease;
+}
+.mg-tip.show{ opacity:1; transform:none; }
+@keyframes mgBob{ 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+@keyframes mgRing{ 0%{transform:scale(1); opacity:.9} 100%{transform:scale(1.55); opacity:0} }
+
+.mg-overlay{
+  position:fixed; inset:0; z-index:100001; display:none; align-items:center; justify-content:center;
+  padding:14px; background:rgba(19,42,68,.62); backdrop-filter:blur(3px);
+}
+.mg-overlay.open{ display:flex; }
+.mg-box{
+  width:min(680px,100%); background:#fff; border-radius:22px; padding:14px 14px 12px;
+  box-shadow:0 24px 60px rgba(0,0,0,.35); animation:mgPop .22s ease;
+}
+@keyframes mgPop{ from{opacity:0; transform:scale(.94) translateY(10px)} to{opacity:1; transform:none} }
+.mg-head{ display:flex; align-items:center; gap:10px; margin-bottom:10px; }
+.mg-title{ font-family:'Fraunces',serif; font-weight:600; font-size:1.1rem; color:#12407A; margin:0; flex:1; }
+.mg-btn{
+  border:none; cursor:pointer; font-family:inherit; font-weight:700; font-size:.8rem;
+  height:34px; min-width:34px; padding:0 12px; border-radius:999px;
+  background:#EAF3FC; color:#1E6FC4; transition:background .15s ease;
+}
+.mg-btn:hover{ background:#D5E7FA; }
+.mg-btn.mg-close{ background:#FCE4ED; color:#D63E72; font-size:1.1rem; padding:0; width:34px; }
+.mg-btn.mg-close:hover{ background:#F8CBDD; }
+.mg-stage{ position:relative; border-radius:16px; overflow:hidden; line-height:0; background:#BFE3FA; }
+.mg-canvas{ display:block; width:100%; height:auto; touch-action:manipulation; cursor:pointer; outline:none; }
+.mg-hint{ margin:10px 2px 0; font-size:.78rem; color:#5D7291; text-align:center; line-height:1.4; }
+.mg-hint kbd{
+  font-family:'IBM Plex Mono',monospace; font-size:.72rem; background:#EAF3FC; color:#12407A;
+  border-radius:6px; padding:2px 6px; border:1px solid #CFE0F3;
+}
+
+.mg-hint-touch{ display:none; }
+@media (hover:none) and (pointer:coarse){
+  .mg-hint-kb{ display:none; }
+  .mg-hint-touch{ display:block; }
+}
+@media (max-width:520px){
+  .mg-fab{ width:54px; height:54px; right:12px; bottom:14px; }
+  .mg-fab img{ width:34px; }
+  .mg-box{ padding:10px; border-radius:18px; }
+  .mg-title{ font-size:1rem; }
+}
+@media (prefers-reduced-motion:reduce){
+  .mg-fab,.mg-fab::after{ animation:none; }
+}
+@media print{ .mg-fab,.mg-overlay,.mg-tip{ display:none !important; } }

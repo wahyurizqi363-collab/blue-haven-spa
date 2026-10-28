@@ -1,0 +1,78 @@
+/* Latar ombak + ikan berenang + ikan melompat + maskot lumba-lumba (murni CSS, di belakang konten) */
+.bg-waves{--wh:min(38vh,340px);position:fixed;left:0;right:0;bottom:0;height:min(58vh,520px);z-index:-1;pointer-events:none;overflow:hidden}
+
+/* ---- Lapisan ombak ---- */
+.bg-waves i{--w:1400px;position:absolute;left:0;bottom:0;width:calc(100% + var(--w));background-repeat:repeat-x;background-size:var(--w) 100%;animation:bgWaveX 26s linear infinite;will-change:transform}
+.bg-waves i:nth-of-type(1){--w:1500px;height:var(--wh);opacity:.16;animation-duration:44s;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,60 C200,100 400,20 600,60 C800,100 1000,20 1200,60 L1200,120 L0,120 Z' fill='%2312407A'/%3E%3C/svg%3E")}
+.bg-waves i:nth-of-type(2){--w:1100px;height:calc(var(--wh) * .82);opacity:.15;animation-duration:30s;animation-direction:reverse;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,60 C200,100 400,20 600,60 C800,100 1000,20 1200,60 L1200,120 L0,120 Z' fill='%231E6FC4'/%3E%3C/svg%3E")}
+.bg-waves i:nth-of-type(3){--w:800px;height:calc(var(--wh) * .62);opacity:.17;animation-duration:20s;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,60 C200,100 400,20 600,60 C800,100 1000,20 1200,60 L1200,120 L0,120 Z' fill='%233E97E8'/%3E%3C/svg%3E")}
+@keyframes bgWaveX{to{transform:translateX(calc(-1 * var(--w)))}}
+
+/* ---- Ikan kecil (badan + ekor yang mengibas) ---- */
+.bg-waves .fish{position:relative;display:block;width:30px;height:18px;transform:scaleX(var(--f,1))}
+.bg-waves .fish.fl{--f:-1}
+.bg-waves .fish::before{content:'';position:absolute;left:7px;top:0;right:0;bottom:0;background:var(--body) center/100% 100% no-repeat}
+.bg-waves .fish::after{content:'';position:absolute;left:0;top:2px;bottom:2px;width:10px;background:var(--tail) center/100% 100% no-repeat;transform-origin:100% 50%;animation:fishTail .5s ease-in-out infinite alternate}
+@keyframes fishTail{from{transform:rotate(-26deg)}to{transform:rotate(26deg)}}
+.bg-waves .c1{--body:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 24' preserveAspectRatio='none'%3E%3Cpath d='M0,12 C6,0 22,0 31,12 C22,24 6,24 0,12 Z' fill='%233E97E8'/%3E%3Cpath d='M9,4 Q15,-1 21,4 Z' fill='white' opacity='.35'/%3E%3Ccircle cx='25' cy='9.5' r='2.4' fill='white'/%3E%3Ccircle cx='25.7' cy='9.5' r='1.2' fill='%23132A44'/%3E%3C/svg%3E");--tail:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 24' preserveAspectRatio='none'%3E%3Cpath d='M12,12 L0,1 Q5,12 0,23 Z' fill='%233E97E8'/%3E%3C/svg%3E")}
+.bg-waves .c2{--body:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 24' preserveAspectRatio='none'%3E%3Cpath d='M0,12 C6,0 22,0 31,12 C22,24 6,24 0,12 Z' fill='%23F0538A'/%3E%3Cpath d='M9,4 Q15,-1 21,4 Z' fill='white' opacity='.35'/%3E%3Ccircle cx='25' cy='9.5' r='2.4' fill='white'/%3E%3Ccircle cx='25.7' cy='9.5' r='1.2' fill='%23132A44'/%3E%3C/svg%3E");--tail:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 24' preserveAspectRatio='none'%3E%3Cpath d='M12,12 L0,1 Q5,12 0,23 Z' fill='%23F0538A'/%3E%3C/svg%3E")}
+.bg-waves .c3{--body:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 24' preserveAspectRatio='none'%3E%3Cpath d='M0,12 C6,0 22,0 31,12 C22,24 6,24 0,12 Z' fill='%231E6FC4'/%3E%3Cpath d='M9,4 Q15,-1 21,4 Z' fill='white' opacity='.35'/%3E%3Ccircle cx='25' cy='9.5' r='2.4' fill='white'/%3E%3Ccircle cx='25.7' cy='9.5' r='1.2' fill='%23132A44'/%3E%3C/svg%3E");--tail:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 24' preserveAspectRatio='none'%3E%3Cpath d='M12,12 L0,1 Q5,12 0,23 Z' fill='%231E6FC4'/%3E%3C/svg%3E")}
+
+/* ---- Ikan berenang menyeberang layar (di bawah permukaan air) ---- */
+.bg-waves .t{position:absolute;left:0;bottom:calc(var(--wh) * var(--k,.08));will-change:transform}
+.bg-waves .t.r{animation:swimR var(--dur,30s) linear var(--del,0s) infinite}
+.bg-waves .t.l{animation:swimL var(--dur,30s) linear var(--del,0s) infinite}
+@keyframes swimR{from{transform:translateX(-80px)}to{transform:translateX(calc(100vw + 40px))}}
+@keyframes swimL{from{transform:translateX(calc(100vw + 40px))}to{transform:translateX(-80px)}}
+.bg-waves .bob{display:block;animation:fishBob var(--bd,3.4s) ease-in-out infinite alternate}
+@keyframes fishBob{from{transform:translateY(-6px) rotate(-4deg)}to{transform:translateY(6px) rotate(4deg)}}
+.bg-waves .s1{--k:.05;--dur:34s;--del:-6s}
+.bg-waves .s2{--k:.10;--dur:44s;--del:-22s}.bg-waves .s2 .bob{--bd:4.1s}
+.bg-waves .s3{--k:.07;--dur:38s;--del:-14s}.bg-waves .s3 .bob{--bd:3s}
+.bg-waves .s4{--k:.13;--dur:50s;--del:-30s}.bg-waves .s4 .bob{--bd:4.6s}
+.bg-waves .s5{--k:.03;--dur:28s;--del:-2s}.bg-waves .s5 .bob{--bd:2.8s}
+
+/* ---- Ikan melompat keluar dari air ---- */
+.bg-waves .jmp{--h:min(26vh,190px);--d:170px;--r:1;--dur:9s;--del:0s;--k:.03;left:var(--x);animation:jumpX var(--dur) linear var(--del) infinite}
+.bg-waves .jy{display:block;opacity:0;animation:jumpY var(--dur) linear var(--del) infinite}
+.bg-waves .j1{--x:14%;--d:170px;--dur:9s;--del:.5s}
+.bg-waves .j2{--x:56%;--d:-150px;--r:-1;--dur:12s;--del:3.5s}
+.bg-waves .j3{--x:80%;--d:150px;--dur:10.5s;--del:6.5s}
+@keyframes jumpX{0%{transform:translateX(0)}24%{transform:translateX(var(--d))}100%{transform:translateX(var(--d))}}
+@keyframes jumpY{
+  0%{opacity:0;transform:translateY(0) rotate(calc(-52deg * var(--r)));animation-timing-function:cubic-bezier(.2,.75,.4,1)}
+  1%{opacity:1}
+  12%{transform:translateY(calc(-1 * var(--h))) rotate(0deg);animation-timing-function:cubic-bezier(.6,0,.8,.25)}
+  23%{opacity:1}
+  24%{opacity:0;transform:translateY(0) rotate(calc(52deg * var(--r)))}
+  100%{opacity:0;transform:translateY(0) rotate(calc(52deg * var(--r)))}
+}
+
+/* ---- Maskot lumba-lumba: berenang menyeberang layar sambil melompat bergantian ---- */
+.bg-waves .dol{--dh:min(24vh,190px);--dy:50px;position:absolute;left:0;bottom:0;width:0;height:0;animation:dolX 84s linear 1s infinite;will-change:transform}
+.bg-waves .dol .fl2{position:absolute;left:0;bottom:0;width:0;height:0;animation:dolFlip 84s linear 1s infinite}
+.bg-waves .dol .sw{position:absolute;left:-60px;bottom:0;width:120px;height:104px;background:url("dolphin.png") center/contain no-repeat;opacity:.35;animation:dolY 5.6s linear infinite;will-change:transform}
+@keyframes dolX{0%{transform:translateX(-160px)}50%{transform:translateX(calc(100vw + 160px))}100%{transform:translateX(-160px)}}
+@keyframes dolFlip{0%,49.99%{transform:scaleX(-1)}50%,100%{transform:scaleX(1)}}
+@keyframes dolY{
+  0%{transform:translateY(var(--dy)) rotate(42deg);opacity:.35;animation-timing-function:cubic-bezier(.25,.7,.35,1)}
+  10%{opacity:1}
+  22%{transform:translateY(calc(-1 * var(--dh))) rotate(0deg);animation-timing-function:cubic-bezier(.65,0,.75,.3)}
+  34%{opacity:1}
+  44%{transform:translateY(var(--dy)) rotate(-42deg);opacity:.35}
+  72%{transform:translateY(calc(var(--dy) + 10px)) rotate(0deg)}
+  100%{transform:translateY(var(--dy)) rotate(42deg);opacity:.35}
+}
+
+@media (max-width:640px){
+  .bg-waves{--wh:30vh}
+  .bg-waves i:nth-of-type(1){--w:760px}.bg-waves i:nth-of-type(2){--w:560px}.bg-waves i:nth-of-type(3){--w:420px}
+  .bg-waves .fish{width:24px;height:14px}
+  .bg-waves .fish::before{left:5px}.bg-waves .fish::after{width:8px}
+  .bg-waves .jmp{--h:min(20vh,120px)}
+  .bg-waves .j1{--d:110px}.bg-waves .j2{--d:-100px}.bg-waves .j3{--d:100px}
+  .bg-waves .dol{--dh:min(20vh,150px);--dy:40px}
+  .bg-waves .dol .sw{left:-42px;width:84px;height:73px}
+}
+@media (prefers-reduced-motion:reduce){.bg-waves i,.bg-waves b,.bg-waves .fish::after{animation:none}.bg-waves b{display:none}}
+@media print{.bg-waves{display:none}}

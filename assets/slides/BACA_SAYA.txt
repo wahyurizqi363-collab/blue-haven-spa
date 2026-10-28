@@ -1,0 +1,10 @@
+FOLDER FOTO SLIDE BERANDA
+=========================
+Taruh foto di folder ini (format .jpg, .jpeg, .png, atau .webp).
+Foto otomatis muncul sebagai slide di halaman depan, setelah foto utama (assets/hero-baby.jpg).
+
+- Urutan slide mengikuti urutan nama file. Contoh: 01-pijat.jpg, 02-spa.jpg, 03-kids.jpg
+- Ukuran ideal: perbandingan 3:2 (misal 1200 x 800 px), maksimal sekitar 500 KB per foto
+  supaya halaman tetap cepat dibuka.
+- Mau menghapus slide? Hapus saja filenya dari folder ini.
+- File .txt ini tidak ikut tampil di website.

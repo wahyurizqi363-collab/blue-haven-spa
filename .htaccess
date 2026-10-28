@@ -1,0 +1,21 @@
+# ---- Paksa HTTPS ----
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+# ---- Header keamanan ----
+<IfModule mod_headers.c>
+  Header always set Strict-Transport-Security "max-age=31536000"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# ---- Sembunyikan file internal dari publik ----
+<FilesMatch "\.(sql|md|log)$">
+  Require all denied
+</FilesMatch>
+<FilesMatch "^(wa_config|auth|admin_hash)\.php$">
+  Require all denied
+</FilesMatch>

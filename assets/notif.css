@@ -1,0 +1,49 @@
+.nf-wrap{position:relative;display:inline-block}
+.nf-bell{position:relative;width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:var(--white);color:var(--sage-deep);cursor:pointer;display:inline-flex;align-items:center;justify-content:center}
+.nf-bell svg{width:21px;height:21px}
+.nf-bell.ring svg{animation:nfring .9s ease 2}
+@keyframes nfring{0%,100%{transform:rotate(0)}20%{transform:rotate(14deg)}40%{transform:rotate(-12deg)}60%{transform:rotate(8deg)}80%{transform:rotate(-6deg)}}
+.nf-badge{position:absolute;top:-4px;right:-4px;min-width:19px;height:19px;padding:0 5px;border-radius:10px;background:#E5484D;color:#fff;font-size:.68rem;font-weight:700;display:none;align-items:center;justify-content:center}
+.nf-panel{position:fixed;right:8px;top:70px;width:min(380px,calc(100vw - 16px));max-height:70vh;overflow:auto;background:var(--white);border:1px solid var(--line);border-radius:16px;box-shadow:0 12px 36px rgba(19,42,68,.18);z-index:99999;display:none}
+.nf-panel.open{display:block}
+.nf-head{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border-bottom:1px solid var(--line);font-weight:700;position:sticky;top:0;background:var(--white)}
+.nf-head button,.nf-actions button,.nf-actions a{font:inherit;font-size:.78rem;font-weight:600;color:var(--sage-deep);background:none;border:0;cursor:pointer;text-decoration:none}
+.nf-item{display:flex;gap:10px;padding:12px 14px;border-bottom:1px solid var(--line);cursor:pointer}
+.nf-item:hover{background:var(--mist)}
+.nf-item.unread{background:#EEF6FE}
+.nf-av{flex:0 0 36px;height:36px;border-radius:50%;background:#DCEBFB;color:var(--sage-deep);font-weight:700;display:flex;align-items:center;justify-content:center}
+.nf-body{min-width:0;flex:1}
+.nf-row{display:flex;justify-content:space-between;gap:8px;font-size:.86rem}
+.nf-item.unread .nf-from{font-weight:700}
+.nf-time{font-size:.7rem;color:#6B7F96;white-space:nowrap}
+.nf-sub{font-size:.8rem;font-weight:600}
+.nf-prev{font-size:.76rem;color:#6B7F96;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nf-empty{padding:28px 14px;text-align:center;color:#6B7F96;font-size:.85rem}
+.nf-detail{padding:14px;font-size:.86rem;line-height:1.55}
+.nf-detail h4{margin:8px 0 2px;font-size:1rem}
+.nf-detail dl{display:grid;grid-template-columns:90px 1fr;gap:4px 8px;margin:10px 0}
+.nf-detail dt{color:#6B7F96}.nf-detail dd{margin:0;font-weight:600}
+.nf-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px}
+.nf-tools{display:flex;align-items:center;gap:12px;padding:8px 14px;border-bottom:1px solid var(--line);font-size:.78rem;background:var(--mist)}
+.nf-tools button{font:inherit;font-size:.78rem;font-weight:600;color:var(--sage-deep);background:none;border:0;cursor:pointer}
+.nf-tools button.danger{color:#C23B3B}
+.nf-selall{display:flex;align-items:center;gap:6px;margin-right:auto;cursor:pointer}
+.nf-chk,.nf-selall input{width:17px;height:17px;accent-color:var(--sage-deep);flex:0 0 auto;align-self:center;cursor:pointer}
+.nf-flash{animation:nfflash 1.2s ease 3;outline:2px solid var(--sage-deep);outline-offset:2px}
+@keyframes nfflash{0%,100%{background:transparent}50%{background:#DCEBFB}}
+
+#nfToasts{position:fixed;top:12px;right:12px;z-index:100000;display:flex;flex-direction:column;gap:10px;width:min(340px,calc(100vw - 24px));pointer-events:none}
+.nf-toast{pointer-events:auto;position:relative;background:var(--white);border:1px solid var(--line);border-left:5px solid var(--sage-deep);border-radius:14px;padding:12px 34px 12px 14px;box-shadow:0 12px 32px rgba(19,42,68,.25);animation:nfin .35s ease}
+@keyframes nfin{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:none}}
+.nf-x{position:absolute;top:6px;right:8px;border:0;background:none;font-size:1.3rem;line-height:1;color:#6B7F96;cursor:pointer}
+.nf-ttl{font-weight:700;font-size:.9rem;margin-bottom:4px}
+.nf-tbody{font-size:.84rem;line-height:1.45}
+.nf-tact{display:flex;gap:8px;margin-top:10px}
+.nf-tact button{font:inherit;font-size:.8rem;font-weight:600;border-radius:9px;padding:7px 12px;cursor:pointer;border:1px solid var(--line);background:var(--white);color:var(--ink)}
+.nf-tact .nf-go{background:var(--sage-deep);border-color:var(--sage-deep);color:#fff}
+
+/* ---- Header admin di HP: rata tengah ---- */
+@media (max-width:640px){
+  .admin-header-right{width:100%;margin-left:0;justify-content:center;align-items:center;gap:10px}
+  .admin-header-right .adminlink-pill{width:auto;justify-content:center;border-radius:999px}
+}
