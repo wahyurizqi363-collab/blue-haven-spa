@@ -4,9 +4,6 @@ A booking, cashier and growth-tracking system for a baby and kids spa. Customers
 
 Built with **PHP, MySQL and vanilla JavaScript**. No framework.
 
-<img width="1362" height="682" alt="Screenshot 2026-10-30 124312" src="https://github.com/user-attachments/assets/e7a8284d-1af3-4630-9a98-2cd8df4cfc09" />
-<img width="1365" height="679" alt="Screenshot 2026-10-30 124318" src="https://github.com/user-attachments/assets/b0ec0106-a169-4d8a-ac5d-4d4e4678a16e" />
-
 ## Features
 
 - **Online reservations** with a capacity check for every hour, so therapists are never double-booked.
@@ -48,7 +45,8 @@ migrasi_*.sql One-time migrations for older installs
 
 ## Screenshots
 
-Add images to a `docs/` folder and link them here.
+<img width="1362" height="682" alt="Screenshot 2026-10-30 124312" src="https://github.com/user-attachments/assets/e7a8284d-1af3-4630-9a98-2cd8df4cfc09" />
+<img width="1365" height="679" alt="Screenshot 2026-10-30 124318" src="https://github.com/user-attachments/assets/b0ec0106-a169-4d8a-ac5d-4d4e4678a16e" />
 
 ## Author
 
